@@ -1,0 +1,1209 @@
+/* //////////-- Main Styles --////////// */
+
+html {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 1.85em;
+    color: #f2f1f0;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #f2f1f0;
+}
+
+h2, form, label, button, input {
+    padding: 0;
+    margin: 0;
+}
+
+/* //////////-- Header Styles --////////// */
+
+#header {
+    background-color: #0b0806;
+    padding: 1.1% 0;
+    margin-top: 1%;
+    opacity: 0.9;
+    display: block;
+}
+
+#header div {
+    display: inline-block;
+}
+
+#logo {
+    margin-left: 5%;
+    padding-top: 5px;
+}
+
+#logo img {
+    height: 30px;
+}
+
+#basket-container {
+    font-size: 1em;
+    color: grey;
+    width: 235px;
+    padding-right: 35px;
+    float: right;
+    position: relative;
+}
+
+#basket-preview {
+    font-size: 0.79em;
+    line-height: 1.5em;
+    min-width: 100px;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    cursor: pointer;
+}
+
+/*#home{*/
+/*background-size:28%;*/
+/*width:65px;*/
+/*height:39px;*/
+/*float:right;*/
+/*cursor:pointer;*/
+/*}*/
+#basket {
+    background: url("../images/icons/cart.png") left no-repeat;
+    background-size: 28%;
+    width: 65px;
+    height: 39px;
+    float: right;
+    cursor: pointer;
+}
+
+#basket p {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    text-align: right;
+    margin: auto;
+}
+
+/* Speech bubble effect */
+.triangle-right {
+    background: #221d19;
+    color: #fff;
+    padding: 15px;
+    margin: 1em 0 3em;
+    margin-right: 40px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    opacity: 0.9;
+    position: relative;
+}
+
+.triangle-right:after {
+    content: "";
+    width: 0;
+    border-width: 0 0 15px 40px;
+    border-color: transparent #221d19;
+    border-style: solid;
+    position: absolute;
+    top: 16px;
+    right: -40px;
+    bottom: auto;
+    left: auto;
+    display: block;
+}
+
+#langSelect {
+    background: transparent;
+    border-left: 1px solid grey;
+    margin-right: 5%;
+    padding-left: 20px;
+    float: right;
+}
+
+#langSelect select {
+    font-size: 1em;
+    background: #0b0806 url("../images/icons/en.png") no-repeat right;
+    color: grey;
+    height: 39px;
+    width: 65px;
+    padding-right: 10px;
+    border: none;
+    cursor: pointer;
+    display: initial;
+}
+
+#langSelect select option {
+    font-size: 1em;
+    color: grey;
+    background-color: #0b0806;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* -- Main Forms Styles -- */
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input, select, button {
+    border: 1px solid #1e0d06;
+    background-color: rgba(30, 13, 6, 0.6);
+    color: #f2f1f0;
+    box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+select, .checkBoxList input[type='text'] {
+    background: url("../images/icons/selectArrow.png") 91% center/8px no-repeat;
+    background-color: rgba(30, 13, 6, 0.6);
+}
+
+form label {
+    color: #f2f1f0;
+}
+
+form .dateInput {
+    background: url("../images/icons/calendar.png") 92% center/13px no-repeat;
+    background-color: rgba(30, 13, 6, 0.6);
+
+}
+
+.checkBoxList {
+    display: inline-block;
+}
+
+.checkBoxList .roomType {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.checkBoxList ul.items {
+    background-color: rgba(30, 13, 6, 0.9);
+    border-top: none;
+    margin: -1px 0;
+    position: absolute;
+    z-index: 9999;
+    display: none;
+}
+
+.checkBoxList ul.items li {
+    list-style: none;
+}
+
+.checkBoxList ul.items li label {
+    cursor: pointer;
+}
+
+.checkBoxList.visible .items {
+    display: block;
+}
+
+#searchForm:before, #results form:before {
+    content: "";
+    background: rgba(75, 32, 14, 0.85);
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+
+#searchForm, #results {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#searchForm form, #results form {
+    font-size: 0.85em;
+    color: #f2f1f0;
+}
+
+#searchForm form .guests, #results form .guests {
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0;
+}
+
+/* //////////-- Search Form Styles --////////// */
+
+#searchForm:before {
+    height: 100%;
+    width: 100%;
+    min-width: 580px;
+}
+
+#searchForm {
+    width: 75%;
+    min-width: 870px;
+    margin: 6% auto;
+    display: block;
+}
+
+#searchForm h1 {
+    padding: 32px 0 15px 0;
+    text-align: center;
+}
+
+#searchForm .inputs {
+    margin-left: 5%;
+    padding: 15px 0;
+}
+
+#searchForm .searchField {
+    padding: 25px 0 32px 0;
+    width: 100%;
+}
+
+#searchForm form {
+    font-size: 0.95em;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#searchForm form input {
+    font-size: 1em;
+    width: 20%;
+    padding: 11px 0 11px 20px;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+#searchForm form .checkBoxList {
+    min-width: 20%;
+    margin-right: 2.5%;
+}
+
+#searchForm form .checkBoxList .roomType {
+    width: 100%;
+    margin-right: 0;
+}
+
+#searchForm form .checkBoxList ul.items {
+    min-width: 220px;
+    padding: 3.5px 10px;
+}
+
+#searchForm form .checkBoxList ul.items li label input {
+    margin: 10px 0;
+}
+
+#searchForm form .personsField {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+#searchForm form .guests {
+    width: 25px;
+}
+
+#searchForm form .subGuest,
+#searchForm form .addGuest {
+    font-size: 1em;
+    padding: 3px;
+    border-radius: 2px;
+    width: 20px;
+    cursor: pointer;
+}
+
+#searchForm .searchBtn {
+    font-size: 1.05em;
+    color: #f2f1f0;
+    background-color: rgba(30, 13, 6, 0.6);
+    padding: 10px 15px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+}
+
+#searchForm .searchBtn img {
+    width: 15px;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+/* //////////-- Second search form & filter Styles --////////// */
+
+#results {
+    width: 72%;
+    min-width: 870px;
+    margin: 3.8% auto;
+    display: none;
+}
+
+#results h2 {
+    background-color: rgba(30, 13, 6, 0.85);
+    border: 1px solid #1e0d06;
+    text-align: center;
+    display: block;
+}
+
+#results form {
+    background-color: rgba(75, 32, 14, 0.7);
+    border: 1px solid #1e0d06;
+}
+
+#results form input {
+    font-size: 1em;
+    width: 19%;
+    padding: 3px 0 3px 10px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+#results .filterSide {
+    width: 18%;
+    float: left;
+    display: inline-block;
+}
+
+#results h2.searchTitle, #results h2.filterTitle, #results h2.resultsTitle {
+    width: 100%;
+    padding: 18px 30px;
+}
+
+#results h2.filterTitle {
+    margin-top: 15px;
+}
+
+#results .reSearch:before, #results .filter:before {
+    padding: 0 30px;
+    height: 380px;
+    width: 18%;
+}
+
+#results .reSearch, #results .filter {
+    border: 1px solid #1e0d06;
+    padding: 0 30px;
+    height: 380px;
+    width: 100%;
+}
+
+#results .reSearch, #results .reSearch:before {
+    height: 225px;
+}
+
+#results .reSearch .inputRow {
+    margin-top: 20px;
+}
+
+#results .reSearch .inputs input {
+    width: 87%;
+    padding-left: 17px;
+    display: block;
+}
+
+#results .label {
+    width: 68px;
+    display: inline-block;
+}
+
+#results .searchBtn {
+    font-size: 1.05em;
+    background-color: rgba(30, 13, 6, 0.6);
+    padding: 8px 15px;
+    margin: auto;
+    color: #f2f1f0;
+    display: block;
+    cursor: pointer;
+}
+
+#results .searchBtn img {
+    width: 13px;
+}
+
+#results .filter .filterRow {
+    padding: 14px 0 18px 0;
+    border-bottom: 1px solid #1e0d06;
+    display: block;
+}
+
+#results .filter label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#results .filter .first {
+    margin-top: 5px;
+}
+
+#results .filter .guests {
+    background-image: none;
+    width: 35px;
+}
+
+#results .filter button {
+    width: 15px;
+    margin: 0 2px;
+    padding: 3px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#results .filter .subGuest {
+    margin-left: 15%;
+
+}
+
+#results .filter .checkBoxList {
+    min-width: 100%;
+    margin-right: 2.5%;
+}
+
+#results .filter .checkBoxList .roomType {
+    width: 90%;
+    margin-right: 0;
+}
+
+#results .filter .checkBoxList ul.items {
+    width: 16%;
+    padding: 3.5px 10px;
+}
+
+#results .filter input[type='text'] {
+    width: 87%;
+    padding-left: 17px;
+}
+
+#results .filter #sizeSlider,
+#results .filter #priceSlider {
+    height: 6px;
+    width: 56%;
+    margin-top: 7px;
+    margin-left: 60px;
+    float: left;
+}
+
+/* //////////-- Search results Styles --////////// */
+#results h2.resultsTitle {
+    text-align: left;
+    width: 100%;
+    padding: 18px 0;
+    min-width: 500px;
+}
+
+#results #availableRooms {
+    font-size: 0.8em;
+    text-align: center;
+    width: 74%;
+    min-width: 500px;
+    float: right;
+}
+
+#results #availableRooms .room {
+    background-color: rgba(232, 232, 224, 0.98);
+    border: 1px solid #1e0d06;
+    color: #1e0d06;
+    width: 100%;
+    margin-bottom: 8px;
+    display: table;
+}
+
+#results #availableRooms .room > div {
+    vertical-align: middle;
+    position: relative;
+    display: table-cell;
+}
+
+#results #availableRooms .room .title,
+#results #availableRooms .room .title-uniq {
+    font-size: 1.1em;
+    background-color: rgba(30, 13, 6, 0.99);
+    color: #f2f1f0;
+    width: 100%;
+    padding: 8px 0;
+    position: absolute;
+    top: 0;
+}
+
+#results #availableRooms .room .title-uniq .limit {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+#results #availableRooms .room .title {
+    border-left: 1px solid #332d2b;
+    position: absolute;
+    top: 0;
+}
+
+#results #availableRooms .room .descr {
+    padding-top: 15px;
+}
+
+#results #availableRooms .room .content {
+    height: 100px;
+    line-height: 110px;
+    vertical-align: middle;
+    border-left: 1px solid #cecdc7;
+}
+
+#results #availableRooms .room .roomImg {
+    max-width: 250px;
+}
+
+#results #availableRooms .room .roomImg img {
+    width: 100%;
+    margin-top: 35px;
+    z-index: -1;
+}
+
+#results #availableRooms .room .addRoom {
+    font-size: 1.1em;
+    background-color: rgba(30, 13, 6, 0.8);
+    border: none;
+    color: #f2f1f0;
+    width: 14.6%;
+    height: 20%;
+    position: absolute;
+    top: 33px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#results #availableRooms .room .details {
+    min-width: 180px;
+}
+
+#results #availableRooms .room .size,
+#results #availableRooms .room .price {
+    min-width: 72px;
+}
+
+#results #availableRooms .room .book {
+    min-width: 110px;
+}
+
+#results #availableRooms .room .book button {
+    border: 1px solid #1e0d06;
+    background-color: rgba(30, 13, 6, 0.99);
+    color: #f2f1f0;
+    width: 60%;
+    padding: 7px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+#cartPopup {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: none;
+}
+
+#popupInner {
+    background-color: #eae8e2;
+    border: 5px solid #150f0a;
+    border-radius: 4px;
+    color: #1e0d06;
+    width: 820px;
+    max-height: 800px;
+    margin: auto;
+    margin-top: 120px;
+    padding-bottom: 10px;
+    z-index: 9999;
+}
+
+#cartPopup #popupInner h1 {
+    font-size: 1.8em;
+    line-height: 2.2em;
+    background-color: #1e0d06;
+    color: #eae8e2;
+    margin: auto;
+    display: block;
+}
+
+#cartItems {
+    font-size: 0.9em;
+    margin: auto;
+    margin-top: 50px;
+    display: table;
+}
+
+#cartItems #labels, #cartItems .roomAdded {
+    display: table-row;
+}
+
+#cartItems #labels div, #cartItems .roomAdded div {
+    border-bottom: 1px solid #1e0d06;
+    vertical-align: middle;
+    min-width: 100px;
+    display: table-cell;
+}
+
+#cartItems #labels {
+    font-weight: bold;
+}
+
+#cartItems .addedRoomImg img {
+    width: 100px;
+}
+
+#cartItems .roomQnt input {
+    text-align: center;
+    width: 20px;
+    padding: 4px 5px;
+}
+
+#cartItems .roomQnt button {
+    border-radius: 6px;
+    border: none;
+    width: 20px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#cartItems .remove button {
+    border-radius: 10px;
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#cartItems .errorMsg {
+    width: 120px;
+    margin-left: -220px;
+    position: absolute;
+    display: none;
+}
+
+#totalPrice {
+    font-weight: bold;
+    float: right;
+    margin: 25px 20px 0 0;
+}
+
+#cartButtons {
+    height: 90px;
+    width: 68%;
+    margin: 20px auto;
+}
+
+#cartButtons button {
+    border: none;
+    width: 108.5px;
+    padding: 8px 15px;
+    margin: 50px 0 10px 0;
+    cursor: pointer;
+}
+
+#cartButtons .checkout {
+    float: right;
+}
+
+#cartButtons .continue {
+    float: left;
+}
+
+/* //////////-- Responsive Styles --////////// */
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: .9em;
+    }
+
+    #results {
+        width: 180px;
+    }
+
+    #results .filterSide {
+        width: 16%;
+    }
+
+    #results #availableRooms {
+        width: 76%;
+    }
+
+    #results #availableRooms .room .roomImg {
+        max-width: 160px;
+    }
+
+    #results #availableRooms .room .size,
+    #results #availableRooms .room .price {
+        min-width: 72px;
+    }
+
+    #results #availableRooms .room .book {
+        min-width: 100px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    html {
+        font-size: .9em;
+    }
+
+    #logo img {
+        height: 25px;
+    }
+
+    #searchForm .inputs {
+        margin-left: 2.2%;
+    }
+
+    #searchForm form input {
+        width: 19%;
+        margin-right: 1%;
+    }
+
+    #results {
+        width: 100%;
+        min-width: 750px;
+    }
+
+    #results .filterSide {
+        width: 16%;
+    }
+
+    #results #availableRooms {
+        width: 75%;
+    }
+
+    #results #availableRooms .room .size,
+    #results #availableRooms .room .price {
+        min-width: 52px;
+    }
+
+    #cartItems #labels div, #cartItems .roomAdded div {
+        min-width: 90px;
+    }
+
+    #cartItems #labels {
+        font-weight: bold;
+    }
+
+    #cartItems .addedRoomImg img {
+        width: 90px;
+    }
+
+    #cartItems .roomQnt input {
+        width: 20px;
+        padding: 4px 5px 4px 5px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: .9em;
+    }
+
+    #logo img {
+        height: 23px;
+    }
+
+    #searchForm .inputs {
+        margin-left: 1%;
+    }
+
+    #searchForm form input {
+        width: 17%;
+        margin-right: 1%;
+    }
+
+    #searchForm form .checkBoxList {
+        min-width: 17%;
+        margin-right: 2%;
+    }
+
+    #results {
+        width: 100%;
+        min-width: auto;
+    }
+
+    #results .filterSide {
+        display: none;
+    }
+
+    #results #availableRooms {
+        width: 100%;
+    }
+
+    #results #availableRooms .room .title,
+    #results #availableRooms .room .title-uniq {
+        padding: 7px 0;
+    }
+
+    #results #availableRooms .room .roomImg {
+        max-width: 160px;
+    }
+
+    #results #availableRooms .room .size,
+    #results #availableRooms .room .price {
+        min-width: 52px;
+    }
+
+    #popupInner {
+        margin-top: 30px;
+        max-width: 580px;
+    }
+
+    #cartItems .roomAdded {
+        height: 60px;
+    }
+
+    #cartItems .roomAdded .addedRoomImg,
+    #cartItems #labels .emptyLabel,
+    #cartItems #labels .totalCartLb,
+    #cartItems .roomAdded .roomsPrice {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    #searchForm:before {
+        min-width: auto;
+    }
+
+    #searchForm {
+        min-width: auto;
+        width: 95%;
+    }
+
+    #searchForm h1 {
+        padding: 30px 0 10px 0;
+    }
+
+    #searchForm form input {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    #searchForm form .checkBoxList {
+        width: 70%;
+        margin: auto;
+        display: block;
+    }
+
+    #searchForm form .checkBoxList .roomType {
+        width: 100%;
+        margin-left: -11px;
+        margin-bottom: 0;
+    }
+
+    #searchForm form .checkBoxList ul.items {
+        min-width: 70%;
+        margin-left: -11px;
+        padding: 3.5px 0;
+        margin: 0;
+    }
+
+    #searchForm form .checkBoxList ul.items li label {
+        margin-left: 20px;
+    }
+
+    #searchForm form .checkBoxList ul.items li label input {
+        width: 10px;
+        margin-right: 20px;
+        display: inline-block;
+    }
+
+    #searchForm form .personsField {
+        width: 70%;
+        margin: auto;
+        margin-top: 5px;
+        display: block;
+    }
+
+    #searchForm form .guests {
+        display: inline-block;
+    }
+
+    #searchForm form .subGuest, #searchForm form .addGuest {
+        display: inline-block;
+    }
+
+    #searchForm .searchBtn {
+        width: 70%;
+        padding: 11px 0 11px 20px;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    html {
+        font-size: .8em;
+    }
+
+    button {
+        font-size: .85em;
+    }
+
+    #basket-container {
+        width: 65px;
+        padding: 2px 20px 0 0;
+    }
+
+    #basket {
+        background-size: 33%;
+        width: 57px;
+        height: 34px;
+    }
+
+    #langSelect {
+        padding-left: 10px;
+    }
+
+    #langSelect select {
+        width: 60px;
+    }
+
+    #basket-preview {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    #results #availableRooms {
+        min-width: auto;
+    }
+
+    #results #availableRooms .room .title,
+    #results #availableRooms .room .title-uniq {
+        padding: 6px 0;
+    }
+
+    #results #availableRooms .room .roomImg {
+        min-width: 50px;
+    }
+
+    #results #availableRooms .room .addRoom {
+        font-size: 1.1em;
+        width: 100%;
+        top: 30px;
+    }
+
+    #results #availableRooms .room .details {
+        min-width: 120px;
+    }
+
+    #results #availableRooms .room .book {
+        min-width: 80px;
+    }
+
+    #popupInner {
+        margin-top: 30px;
+        max-width: 580px;
+        width: 98%;
+    }
+
+    #cartItems {
+        width: 100%;
+    }
+
+    #cartItems #labels div, #cartItems .roomAdded div {
+        min-width: auto;
+    }
+
+    #cartButtons button {
+        width: 93px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #logo img {
+        height: 18px;
+        padding: 3px 0;
+    }
+
+    #langSelect select {
+        width: 55px;
+    }
+
+    #searchForm form input,
+    #searchForm form .checkBoxList,
+    #searchForm form .checkBoxList ul.items,
+    #searchForm .searchBtn {
+        width: 80%;
+    }
+
+    #results #availableRooms .room .roomImg {
+        min-width: 25px;
+    }
+
+    #cartButtons {
+        width: 95%;
+        position: relative;
+        display: block;
+    }
+
+    #cartButtons .checkout,
+    #cartButtons .continue {
+        float: auto;
+        position: absolute;
+    }
+
+    #cartButtons .checkout {
+        background-color: #0b0806;
+        right: 20px;
+    }
+
+    #cartButtons .continue {
+        background-color: #0b0806;
+        left: 20px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    #results #availableRooms .room .roomImg {
+        min-width: 25px;
+    }
+
+    #results #availableRooms .room .roomImg img {
+        visibility: hidden;
+    }
+
+    #results #availableRooms .room .addRoom {
+        width: 100%;
+        height: 65%;
+    }
+
+    #results #availableRooms .room .roomImg span.av {
+        display: none;
+    }
+
+    #results #availableRooms .room .book {
+        min-width: 65px;
+    }
+
+    #results #availableRooms .room .book button {
+        width: 95%;
+        padding: 8px 0;
+    }
+
+    #results #availableRooms .room .title-uniq {
+        min-width: 30px;
+    }
+
+    #cartItems #labels .arrivalCartLb,
+    #cartItems .roomAdded .arrivalDate {
+        display: none;
+    }
+}
+
+/* //////////-- Animations --////////// */
+
+@keyframes blur-in {
+    from {
+        -webkit-filter: blur(8px);
+        opacity: 0.5;
+    }
+    to {
+        -webkit-filter: blur(0px);
+        transform: skewX(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes blur-out {
+    from {
+        -webkit-filter: blur(0px);
+        opacity: 1;
+    }
+    to {
+        -webkit-filter: blur(8px);
+        transform: skewX(180deg);
+        opacity: 0.5;
+    }
+}
+
+.blur-in {
+    animation-name: blur-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.blur-out {
+    animation-name: blur-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes highlight {
+    0% {
+        background: red
+    }
+    100% {
+        background: none;
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    -webkit-animation: spin 0.5s;
+    -moz-animation: spin 0.5s;
+    animation: spin 0.5s;
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn 0.5s;
+    -webkit-animation: zoomIn 0.5s;
+    -moz-animation: zoomIn 0.5s;
+}

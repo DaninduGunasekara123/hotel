@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Quantas Hotel</title>
+
+    <style>
+        body, div.h1, p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .hideStart {
+            display: none;
+        }
+
+        body {
+            background: url("images/studioapartment-1000x430.jpg") top center/cover no-repeat fixed;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<div ng-app="bookingApp" ng-controller="booking-controller as vm" onload-dir="">
+    <onload-dir cart="vm.cart"/>
+    <div id='header' class="hideStart">
+        <div id="logo">
+            <a href="index.html"><img src="images/rooms/" alt=""></a>
+            <h1>Quantas City Hotel</h1>
+        </div>
+
+        <div id="langSelect">
+            <select id="language">
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+            </select>
+        </div>
+
+        <cart-popup-show-dir cart="vm.cart"/>
+        <div id="basket-container">
+            <div id="basket-preview" class="triangle-right">
+                <p>{{shoppingCart | totalRoomsFilter : 'Quantity'}} x <span data-inter="" rooms> Rooms </span></p>
+                <p><span data-inter="price"> Price </span> : {{shoppinCart | totalPriceFiter : 'Price'}} € </p>
+            </div>
+
+            <div id="basket"><p data-inter="basket"> Basket </p> <span> </span></div>
+
+        </div>
+    </div>
+
+    <div id="searchForm" class="hideStart">
+        <h1 data-inter="primFormLabel"> Book Your Room </h1>
+        <hr>
+
+        <form>
+            <div class="input">
+                <input ng-model="search.formDate" placeholder="Arrival" data-inter="arrival" class="dataInput form"
+                       type="text" readonly>
+                <input ng-model="search.toDate" placeholder="Depature" data-inter="depature" class="dateInput to"
+                       type="text" readonly/>
+                <div class="checkBoxList" tabindex="100">
+                    <input type="text" class="roomType" data-inter="alltypes" value="All Types" readonly>
+                    <ul class="items">
+                        <li><label> <input ng-model="filter.types.single" data-inter="single" value="Single"
+                                           type="checkbox"/> <span data-inter="single"> Single </span> </label></li>
+                        <li><label> <input ng-model="filter.types.double" data-inter="double" value="Double"
+                                           type="checkbox"/> <span data-inter="double"> Double </span> </label></li>
+                        <li><label> <input ng-model="filter.types.twin" data-inter="twin" value="Twin" type="checkbox"/>
+                            <span data-inter="twin"> Twin </span> </label></li>
+                        <li><label> <input ng-model="filter.types.triple" data-inter="triple" value="Triple"
+                                           type="checkbox"/> <span data-inter="triple"> Triple </span> </label></li>
+                        <li><label> <input ng-model="filter.types.suite" data-inter="suite" value="Suite"
+                                           type="checkbox"/> <span data-inter="suite"> Suite </span> </label></li>
+                    </ul>
+                </div>
+                <div class="personsField">
+                    <label data-inter="persons"> Persons </label> :
+                    <button class="subGuest" type="button"> -</button>
+                    <input ng-model="filter.guests" class="guests" type="number" value="1" readonly>
+                    <button class="addGuests" type="button"> +</button>
+                </div>
+            </div>
+            <div class="searchField">
+                <button ng-click="startSearch()" class="searchBtn" type="button"/>
+                <span data-inter="searchBtn"> Check availability </span>&nbsp;<img
+                    src="images/icons/search-icon.png"> </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="results" class="hideStart">
+        <div class="filterSide">
+            <h2 class="searchTitle" data-inter="search"> Search </h2>
+            <form class="reSearch">
+                <div class="inputs">
+                    <div class="inputRow">
+                        <label data-inter="arrival"> Arrival : </label>
+                        <input ng-model="search.formDate" class="dateInput form2" type="text" readonly/>
+                    </div>
+                    <div class="inputRow">
+                        <label data-inter="depature"> Depature : </label>
+                        <input ng-model="search.toDate" class="dateInput to2" type="text" readonly/>
+                    </div>
+                    <div class="inputRow">
+                        <button ng-click="startSearch()" class="searchBtn" type="button"/>
+                        <span data-inter="search"> Search </span>&nbsp;&nbsp;<img
+                            src="images/icons/search-icon.png"> </button>
+                    </div>
+                </div>
+            </form>
+
+            <h2 class="filterTitle" data-inter="filter"> Filter </h2>
+            <form class="filter">
+                <div class="inputs">
+                    <div filterRow>
+                        <label class="first" data-inter="persons"> Persons : </label>
+                        <button class="subGuest" type="button"> -</button>
+                        <input ng-model="filter.guests" class="guests" type="number" value="1" readonly/>
+                        <button class="addGuest" type="button">+</button>
+                    </div>
+                    <div class="filterRow">
+                        <div class="checkBoxList" tabindex="100">
+                            <label class="label" data-inter="type"> Type : </label>
+                            <input type="text" class="roomType" data-inter="alltypes" value="All Types" readonly/>
+                            <ul class="items">
+                                <li><label> <input ng-model="filter.types.single" data-inter="single" value="Single"
+                                                   type="checkbox"/> <span data-inter="single"> Single </span></label>
+                                </li>
+                                <li><label> <input ng-model="filter.types.double" data-inter="double" value="Double"
+                                                   type="checkbox"/> <span data-inter="double"> Double </span></label>
+                                </li>
+                                <li><label> <input ng-model="filter.types.twin" data-inter="twin" value="Twin"
+                                                   type="checkbox"/> <span data-inter="twin"> Twin </span></label></li>
+                                <li><label> <input ng-model="filter.types.triple" data-inter="triple" value="Triple"
+                                                   type="checkbox"/> <span data-inter="triple"> Triple </span></label>
+                                </li>
+                                <li><label> <input ng-model="filter.types.suite" data-inter="suite" value="Suite"
+                                                   type="checkbox"/> <span data-inter="suite"> Suite </span></label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filterRow">
+                        <div id="sizeSlider"></div>
+                        <label class="label" data-inter="size"> Size : </label>
+                        <input id="sizeRange" type="text" readonly>
+                        <input ng-model="filter.sizeRange.from" id="sizeFrom" class="hiddenInput" type="number">
+                        <input ng-model="filter.sizeRange.to" id="sizeTo" class="hiddenInput" type="number">
+                    </div>
+                    <div class="filterRow">
+                        <div id="priceSlider"></div>
+                        <label class="label" data-inter="price"> Price :</label>
+                        <input id="priceRange" type="text" readonly>
+                        <input ng-model="filter.priceRange.from" id="priceFrom" class="hiddenInput" type="number">
+                        <input ng-model="filter.priceRange.to" id="priceTo" class="hiddenInput" type="number">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="availableRooms">
+            <div class="room" ng-repeat="room in rooms | categoriesFilter: filter.types |
+											guestsFilter: filter.guests | priceFilter: filter.priceRange | sizeFilter: filter.sizeRange">
+                <div class="roomImg">
+                    <p class="title-uniq">
+							<span ng-if="room.RoomsNum < 4" class="limit">
+								<span class="av" data-inter="only">Only</span>
+								{{ room.RoomsNum }}
+								<span data-inter="available">available</span>
+							</span> &nbsp;
+                    </p>
+                    <update-basket-dir cart="vm.cart">
+                        <button ng-click="addToCart(room.Type, room.RoomsNum, room.Price)" class="addRoom"
+                                type="button"/>
+                        +
+                    </update-basket-dir>
+                    <img src="images/rooms/{{ room.Type }}.jpg" alt="room image"/>
+                </div>
+                <div class="details">
+                    <p class="title"><span data-inter="roomType"> Room </span> : {{ room.Type }} </p>
+                    <div class="descr">
+                        <p><span data-inter="maxguests"> Max guests </span> : {{ room.Max_persons }} </br>
+                            {{ room.Description }} </p>
+                    </div>
+                </div>
+                <div class="size">
+                    <p class="title" data-inter="roomSize"> Size </p>
+                    <p class="content"> {{ room.Size }} m2 </p>
+                </div>
+                <div class="price">
+                    <p class="title" data-inter="price"> Price </p>
+                    <p class="content"> {{ room.Price }} € </p>
+                </div>
+                <div class="book">
+                    <p class="title"> &nbsp; </p>
+                    <div class="content">
+                        <cart-popup-show-dir cart="vm.cart"/>
+                        <update-basket-dir cart="vm.cart">
+                            <button ng-click="addToCart(room.Type, room.RoomsNum, room.Price)" type="button"><span
+                                    data-inter="book"> Book</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartPopup" class="hideStart">
+        <div id="popupInner">
+            <h1 data-inter="basket"> Basket </h1>
+            <div id="cartItems">
+                <div id="labels">
+                    <div class="emptyLabel"></div>
+                    <div data-inter="roomType"> Type</div>
+                    <div data-inter="price"> Price</div>
+                    <div data-inter="arrival" class="arrivalCartLb"> Arrival</div>
+                    <div data-inter="overnights"> Overnights</div>
+                    <div data-inter="quantity"> Quantity</div>
+                    <div data-inter="total" class="totalCartLb"> Total</div>
+                    <div class="emptyLabelLast"></div>
+                </div>
+                <div id="room-{{$index}}" class="roomAdded" ng-repeat="element in shoppingCart">
+                    <div class="addedRoomImg">
+                        <img src="images/rooms/{{element.type}}.jpg" alt="room image"/>
+                    </div>
+
+                    <div class="addedRoomType">
+                        {{element.type}}
+                    </div>
+                    <div class="price">
+                        {{ element.price }} €
+                    </div>
+                    <div class="arrivalDate">
+                        {{element.fromDate}}
+                    </div>
+                    <div class="overnight">
+                        {{element.duration}}
+                    </div>
+
+                    <div class="roomQnt">
+                        <button ng-click="decreaseQuantity($index)" class="sub" type="button"> -</button>
+                        <input ng-model=element.quantity min="1" class="qnt" type="number" value=element.quantity
+                               readonly/>
+                        <span class="errorMsg triangle-right" data-inter="noMore"> </span>
+                        <quantity-dir cart="vm.cart" pointer="$index"/>
+                        <button ng-click="increaseQuantity($index)" class="add" type="button">+</button>
+                    </div>
+                    <div class="roomPrice">
+                        {{element.price * element,duration * element.quantity}} €
+                    </div>
+                    <div class="remove">
+                        <button update-basket-dir cart="vm.cart" ng-click="removeRooms($index)" class="removebtn"
+                                type="button"> X
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="totalPrice"><span data-inter="total"> Total </span>: <span> {{shoppingCart | totalPriceFilter:'Price'}} € </span>
+            </div>
+            <div id="cartButtons">
+                <button class="continue" type="button" data-inter="continueBook"> Continue Booking</button>
+                <button class="checkout" type="button" data-inter="checkout"> Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="javaScript/libs/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="javaScript/libs/angular.min.js"></script>
+<script type="text/javascript" src="javaScript/rooms/bookingApp.js"></script>
+<script type="text/javascript" src="javaScript/rooms/booking-controller.js"></script>
+<script type="text/javascript" src="javaScript/rooms/booking-services.js"></script>
+<script type="text/javascript" src="javaScript/rooms/booking-filters.js"></script>
+<script type="text/javascript" src="javaScript/rooms/booking-directives.js"></script>
+<script type="text/javascript">
+
+    if (window.addEventListener) {
+        window.addEventListener("load", load_js_files())
+        window.addEventListener("load", load_css('CSS/styles.css'));
+        window.addEventListener("load", load_css('CSS/jQuery-ui.css'));
+    } else if (window.attachEvent) {
+        window.attachEvent("onload", load_js_files());
+        window.attachEvent("onload", load_css('css/styles.css'));
+        window.attachEvent("onload", load_css('css/jQuery-ui.css'));
+    } else {
+        window.onload = load_js_files();
+        window.onload("onload", load_css('css/styles.css'));
+        window.onload("onload", load_css('css/jQuery-ui.css'));
+    }
+
+    function loadScript(url, callback) {
+        var scipt = document.createElement("script");
+        scipt.type = "text/javascript";
+
+        if (script.readyState) {
+            script.onreadystatechange = function () {
+                if (script.readyState === "loaded" || script.readyState === "complete") {
+                    script.onreadystatechange = null;
+                    if (typeof callback != 'undefined') {
+                        callback();
+                    }
+                }
+            };
+        } else {
+            script.onload = function () {
+                if (typeof callback != 'undefined') {
+                    callback();
+                }
+            };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(scipt);
+    }
+
+    function load_js_files() {
+        loadScript('javaScript/libs/jquery-ui.min.js', function () {
+            loadScript('javaScript/date-picker-custom.js');
+            loadScript('javaScript/forms.js');
+            loadScript('javaScript/internationalization.js');
+        });
+    }
+
+    function load_css(file) {
+        var cb = function () {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = file;
+            var h = document.getElementsByTagName('head')[0];
+            h.parentNode.insertBefore(l, h);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+    }
+</Script>
+
+</body>
+</html>

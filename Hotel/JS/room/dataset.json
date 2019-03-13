@@ -1,0 +1,116 @@
+{
+  "Rooms": [
+    {
+      "Id": "1",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 30,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "2",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 30,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "3",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 30,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "4",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 60,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "5",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 60,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "6",
+      "Type": "Single",
+      "Size": 20,
+      "Price": 60,
+      "Max_persons": 1,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "7",
+      "Type": "Double",
+      "Size": 40,
+      "Price": 85,
+      "Max_persons": 2,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "8",
+      "Type": "Double",
+      "Size": 40,
+      "Price": 85,
+      "Max_persons": 2,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "9",
+      "Type": "Double",
+      "Size": 40,
+      "Price": 85,
+      "Max_persons": 2,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "10",
+      "Type": "Double",
+      "Size": 60,
+      "Price": 95,
+      "Max_persons": 2,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "11",
+      "Type": "Triple",
+      "Size": 80,
+      "Price": 180,
+      "Max_persons": 3,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "12",
+      "Type": "Triple",
+      "Size": 80,
+      "Price": 180,
+      "Max_persons": 3,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "13",
+      "Type": "Triple",
+      "Size": 80,
+      "Price": 180,
+      "Max_persons": 3,
+      "Description": "Room description here..."
+    },
+    {
+      "Id": "14",
+      "Type": "Suite",
+      "Size": 100,
+      "Price": 250,
+      "Max_persons": 5,
+      "Description": "Room description here..."
+    }
+  ]
+}
